@@ -14,4 +14,9 @@ class Product extends Model
     protected $fillable = [
         'name','product_code', 'quantity','price','vendor','supplier','description',
     ];
+
+    /*public function suppliers()
+    {
+        return $this->belongsTo(User::class);
+    }*/
 }
