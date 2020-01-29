@@ -15,8 +15,9 @@ class Product extends Model
         'name','product_code', 'quantity','price','vendor','supplier','description',
     ];
 
-    /*public function suppliers()
+    public function suppliers()
     {
-        return $this->belongsTo(User::class);
-    }*/
+//        return $this->belongsTo(User::class);
+        return $this->belongsTo(User::class,'supplier','id');
+    }
 }

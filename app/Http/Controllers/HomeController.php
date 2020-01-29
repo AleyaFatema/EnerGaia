@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Product;
-
+use \Auth;
 class HomeController extends Controller
 {
     /**
@@ -24,7 +24,10 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $products = Product::orderBy('created_at', 'asc')->get(); //dd($products);
+        $products = Product::where('supplier',Auth::user()->id)
+            ->orderBy('created_at', 'asc')
+            ->get(); //dd($products);
+        //dump(Auth::user()->id);
         return view('home',['products'=>$products]);
     }
 }
